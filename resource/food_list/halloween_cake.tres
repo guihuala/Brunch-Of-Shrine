@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodData" load_steps=2 format=3 uid="uid://bsqhs33lqkty2"]
+
+[ext_resource type="Script" path="res://scripts/cook/food_data.gd" id="1_cr02i"]
+
+[resource]
+script = ExtResource("1_cr02i")
+food_name = "halloween cake"
+texture_path = "res://assets/dishes/halloween_cake.png"
+price = 12
+quantity = 0

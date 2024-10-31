@@ -1,0 +1,122 @@
+[gd_scene load_steps=11 format=3 uid="uid://bs7wi2pee7k6e"]
+
+[ext_resource type="Texture2D" uid="uid://boa822pn1fgys" path="res://assets/Inventory/Inventory_background.png" id="1_4o82y"]
+[ext_resource type="Script" path="res://scripts/bag.gd" id="1_warnd"]
+[ext_resource type="PackedScene" uid="uid://b3n2frqekv65y" path="res://scene/inventory/item_info.tscn" id="2_iq3kj"]
+[ext_resource type="Resource" uid="uid://bmgvetmbtq1vl" path="res://resource/seed_resource.tres" id="3_qceiq"]
+[ext_resource type="Resource" uid="uid://cnuq1toa8qslm" path="res://resource/plant_resource.tres" id="4_6pe2n"]
+[ext_resource type="Texture2D" uid="uid://ccy4qfrmtiet0" path="res://assets/Inventory/tabbar_ui.png" id="5_i26lt"]
+[ext_resource type="Texture2D" uid="uid://c02wescdro41o" path="res://assets/Inventory/tabbar_ui_normal.png" id="6_8he0k"]
+[ext_resource type="PackedScene" uid="uid://cr8cfn1y5dmwo" path="res://scene/inventory/tooltip.tscn" id="6_krxwb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y5ts5"]
+texture = ExtResource("5_i26lt")
+texture_margin_left = 5.0
+texture_margin_top = 3.0
+texture_margin_right = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5t730"]
+texture = ExtResource("6_8he0k")
+texture_margin_left = 5.0
+texture_margin_top = 7.0
+texture_margin_right = 5.0
+modulate_color = Color(0.823529, 0.823529, 0.823529, 1)
+
+[node name="bag" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_warnd")
+slotScene = ExtResource("2_iq3kj")
+seedsResource = ExtResource("3_qceiq")
+plantsResource = ExtResource("4_6pe2n")
+
+[node name="TabBar" type="TabBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -145.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hovered_color = Color(1, 1, 1, 1)
+theme_override_colors/font_unselected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 8
+theme_override_styles/tab_selected = SubResource("StyleBoxTexture_y5ts5")
+theme_override_styles/tab_hovered = SubResource("StyleBoxTexture_y5ts5")
+theme_override_styles/tab_unselected = SubResource("StyleBoxTexture_5t730")
+tab_count = 3
+tab_0/title = "SEEDS"
+tab_1/title = "DISHES"
+tab_2/title = "CROPS"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -116.0
+offset_right = 196.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4o82y")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 6
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 252.0
+offset_top = -20.0
+offset_right = 388.0
+offset_bottom = -1.0
+theme_override_font_sizes/font_size = 8
+text = "money:888"
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="tooltip" parent="." instance=ExtResource("6_krxwb")]
+visible = false
+layout_mode = 1
+
+[connection signal="tab_changed" from="TabBar" to="." method="_on_tab_bar_tab_changed"]

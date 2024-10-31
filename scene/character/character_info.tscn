@@ -1,0 +1,397 @@
+[gd_scene load_steps=22 format=3 uid="uid://culgkiqhmfpkn"]
+
+[ext_resource type="Script" path="res://scripts/character_info.gd" id="1_m667e"]
+[ext_resource type="Texture2D" uid="uid://boa822pn1fgys" path="res://assets/Inventory/Inventory_background.png" id="1_qibx4"]
+[ext_resource type="Texture2D" uid="uid://bmo6qs8xy6rxe" path="res://assets/character/tsubakura.png" id="2_10mrr"]
+[ext_resource type="PackedScene" uid="uid://cjd0q2mr1opbv" path="res://scene/character/food_slot.tscn" id="3_dh6o8"]
+[ext_resource type="PackedScene" uid="uid://b3n2frqekv65y" path="res://scene/inventory/item_info.tscn" id="3_kdp6v"]
+[ext_resource type="Resource" uid="uid://cnuq1toa8qslm" path="res://resource/plant_resource.tres" id="3_vfcsu"]
+[ext_resource type="Resource" uid="uid://bmgvetmbtq1vl" path="res://resource/seed_resource.tres" id="4_duobh"]
+[ext_resource type="Texture2D" uid="uid://c3vqjwgpd22xt" path="res://assets/others/button_normal.png" id="4_ft6b2"]
+[ext_resource type="Resource" uid="uid://00wdkeybfxgm" path="res://resource/food_resource.tres" id="5_0ljdg"]
+[ext_resource type="Texture2D" uid="uid://ohjcgfcaysph" path="res://assets/others/button_pressed.png" id="5_81cvl"]
+[ext_resource type="Texture2D" uid="uid://c7vktcgtnhcc1" path="res://assets/others/button_disabled.png" id="11_32k5p"]
+[ext_resource type="Texture2D" uid="uid://ctq0ey3yk5k6h" path="res://assets/Inventory/Inventory_Slot.png" id="11_il8ce"]
+[ext_resource type="Texture2D" uid="uid://fuqdr5ynbiwm" path="res://assets/others/mouse_cook.png" id="12_13g2f"]
+[ext_resource type="Texture2D" uid="uid://bil51hkmhi5n3" path="res://assets/others/mouse_shop.png" id="14_k2yqu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b0d4w"]
+texture = ExtResource("11_il8ce")
+texture_margin_left = 11.0
+texture_margin_top = 2.0
+texture_margin_right = 11.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5max4"]
+bg_color = Color(0.976471, 0.52549, 0.521569, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_awdus"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cgel6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ssee6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v8uuq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjj3j"]
+
+[node name="character_info" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_m667e")
+item_info = ExtResource("3_kdp6v")
+food_slot = ExtResource("3_dh6o8")
+plant_resource = ExtResource("3_vfcsu")
+seed_resource = ExtResource("4_duobh")
+foodResource = ExtResource("5_0ljdg")
+
+[node name="quest" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -152.0
+offset_right = 64.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qibx4")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="MarginContainer" type="MarginContainer" parent="quest"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="quest/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="quest/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="quest/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="quest/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("2_10mrr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="quest/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="character_name" type="Label" parent="quest/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.760784, 0.533333, 0.368627, 1)
+text = "character"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="desc" type="Label" parent="quest/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.760784, 0.533333, 0.368627, 1)
+theme_override_font_sizes/font_size = 8
+text = "caiadlsidjlasdjaks
+ldjaskdjs
+kaldjsdasdasdsa
+dasdsds"
+autowrap_mode = 3
+uppercase = true
+
+[node name="request" type="Label" parent="quest/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.760784, 0.533333, 0.368627, 1)
+theme_override_font_sizes/font_size = 8
+text = "request"
+uppercase = true
+
+[node name="GridContainer" type="GridContainer" parent="quest/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+columns = 5
+
+[node name="reward" type="Label" parent="quest/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.760784, 0.533333, 0.368627, 1)
+theme_override_font_sizes/font_size = 8
+text = "reward"
+uppercase = true
+
+[node name="GridContainer2" type="GridContainer" parent="quest/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+columns = 5
+
+[node name="cookButton" type="TextureButton" parent="quest/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture_normal = ExtResource("4_ft6b2")
+texture_pressed = ExtResource("5_81cvl")
+texture_hover = ExtResource("5_81cvl")
+texture_disabled = ExtResource("11_32k5p")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="quest/MarginContainer/ScrollContainer/VBoxContainer/cookButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "submit"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="favorability" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -139.0
+offset_right = 64.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qibx4")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="MarginContainer" type="MarginContainer" parent="favorability"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="favorability/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="favorability/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.760784, 0.533333, 0.368627, 1)
+text = "Choose brunch for ..."
+horizontal_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="favorability/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="favorability/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="favorability/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("11_il8ce")
+patch_margin_left = 11
+patch_margin_top = 4
+patch_margin_right = 11
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="favorability/MarginContainer/VBoxContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="favorability/MarginContainer/VBoxContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="brunch_list" type="GridContainer" parent="favorability/MarginContainer/VBoxContainer/NinePatchRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+columns = 3
+
+[node name="TextureButton" type="TextureButton" parent="favorability/MarginContainer/VBoxContainer/NinePatchRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture_normal = ExtResource("12_13g2f")
+
+[node name="Label" type="Label" parent="favorability/MarginContainer/VBoxContainer/NinePatchRect/MarginContainer/HBoxContainer/TextureButton"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 44.0
+offset_right = 54.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0.760784, 0.533333, 0.368627, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 6
+text = "EAT"
+
+[node name="chara_favor_info" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 96.0
+offset_top = -139.0
+offset_right = 224.0
+offset_bottom = 21.0
+
+[node name="ProgressBar" type="ProgressBar" parent="chara_favor_info"]
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 48.0
+size_flags_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxTexture_b0d4w")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5max4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="chara_favor_info"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -32.0
+offset_right = 64.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 10
+
+[node name="item_info" parent="chara_favor_info/HBoxContainer" instance=ExtResource("3_kdp6v")]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+
+[node name="get" type="TextureButton" parent="chara_favor_info/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture_normal = ExtResource("14_k2yqu")
+
+[node name="chatbox" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 88.0
+offset_top = -59.0
+offset_right = 240.0
+offset_bottom = 37.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_qibx4")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="MarginContainer" type="MarginContainer" parent="chatbox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="chatbox/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.760784, 0.533333, 0.368627, 1)
+theme_override_font_sizes/font_size = 8
+text = "Today is also a good day"
+autowrap_mode = 3
+uppercase = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(144, 117)
+scale = Vector2(3.91667, 3.91667)
+texture = ExtResource("2_10mrr")
+flip_h = true
+
+[node name="next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 117.0
+offset_right = 264.0
+offset_bottom = 149.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_awdus")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cgel6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ssee6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_v8uuq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yjj3j")
+text = ">"
+
+[node name="pre" type="Button" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 117.0
+offset_right = 224.0
+offset_bottom = 149.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_awdus")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cgel6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ssee6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_v8uuq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yjj3j")
+text = "<"
+
+[connection signal="button_down" from="quest/MarginContainer/ScrollContainer/VBoxContainer/cookButton" to="." method="_on_cook_button_button_down"]
+[connection signal="button_down" from="favorability/MarginContainer/VBoxContainer/NinePatchRect/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_down" from="chara_favor_info/HBoxContainer/get" to="." method="_on_get_button_down"]
+[connection signal="button_down" from="next" to="." method="_on_next_button_down"]
+[connection signal="button_down" from="pre" to="." method="_on_pre_button_down"]

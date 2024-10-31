@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3 uid="uid://kemwuc53ujg1"]
+
+[ext_resource type="Texture2D" uid="uid://q5vi2wy5jsi0" path="res://assets/character/kanae.png" id="1_1ohk3"]
+[ext_resource type="Script" path="res://scripts/character_data.gd" id="2_goo5h"]
+[ext_resource type="Resource" uid="uid://b70e32xybno4x" path="res://resource/quest/tsubakura/tsuba_quest01.tres" id="2_gyb5x"]
+
+[resource]
+script = ExtResource("2_goo5h")
+character_name = "kanae"
+character_texture = ExtResource("1_1ohk3")
+character_salutation = Array[String](["I'm a game creator."])
+quest = Array[Resource("res://scripts/quest_data.gd")]([ExtResource("2_gyb5x")])
+isNPC = false

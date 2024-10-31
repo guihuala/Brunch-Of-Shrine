@@ -1,0 +1,109 @@
+[gd_scene load_steps=17 format=3 uid="uid://b1tc6j5qtr3dp"]
+
+[ext_resource type="Script" path="res://scene/shop/stall.gd" id="1_p1afd"]
+[ext_resource type="Texture2D" uid="uid://boa822pn1fgys" path="res://assets/Inventory/Inventory_background.png" id="1_wfhkx"]
+[ext_resource type="PackedScene" uid="uid://cfu3gskg3dwp7" path="res://scene/shop/shop_cell.tscn" id="2_toy0t"]
+[ext_resource type="Texture2D" uid="uid://bmo6qs8xy6rxe" path="res://assets/character/tsubakura.png" id="3_pq4dp"]
+[ext_resource type="Resource" uid="uid://bsqhs33lqkty2" path="res://resource/food_list/halloween_cake.tres" id="3_wg2rv"]
+[ext_resource type="Resource" uid="uid://bt205ndenhgdu" path="res://resource/food_list/dynamic kagamimochi.tres" id="4_3axsa"]
+[ext_resource type="Resource" uid="uid://brn5weupqsodu" path="res://resource/food_list/manju.tres" id="5_jbtpm"]
+[ext_resource type="Resource" uid="uid://cru7wps48u6fq" path="res://resource/food_list/rainwater_syrup.tres" id="6_ta3r8"]
+[ext_resource type="Resource" uid="uid://swgwyayekxbn" path="res://resource/food_list/soul_soft_candy.tres" id="7_r0vul"]
+[ext_resource type="Resource" uid="uid://gsggrnfhxjgo" path="res://resource/food_list/wood_ramen.tres" id="8_b2jou"]
+[ext_resource type="Resource" uid="uid://cuv2p6h7c41tm" path="res://resource/food_list/ink_ramen.tres" id="9_03fj5"]
+[ext_resource type="Resource" uid="uid://ginbh7jb7rk4" path="res://resource/food_list/happy_breakfastW.tres" id="9_5kmgt"]
+[ext_resource type="Resource" uid="uid://crqsrvtoiybdn" path="res://resource/food_list/happy_breakfastJ.tres" id="10_d2foe"]
+[ext_resource type="Resource" uid="uid://qnjo3p6s07lc" path="res://resource/food_list/slug_miso_soup.tres" id="10_vsi08"]
+[ext_resource type="Resource" uid="uid://digd0gjhbirxt" path="res://resource/food_list/vagetable_sticks.tres" id="11_xsxfk"]
+[ext_resource type="Resource" uid="uid://c8krw6kb28ki6" path="res://resource/food_list/shaved_ice.tres" id="12_mh5wh"]
+
+[node name="stall" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p1afd")
+shop_cell = ExtResource("2_toy0t")
+daily_items = Array[Resource]([ExtResource("3_wg2rv"), ExtResource("4_3axsa"), ExtResource("9_03fj5"), ExtResource("10_vsi08"), ExtResource("7_r0vul"), ExtResource("8_b2jou"), ExtResource("9_5kmgt"), ExtResource("10_d2foe"), ExtResource("11_xsxfk"), ExtResource("12_mh5wh")])
+seasonal_items = {
+"Fall": [],
+"Spring": [ExtResource("5_jbtpm"), ExtResource("6_ta3r8")],
+"Summer": [],
+"Winter": []
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -140.0
+offset_right = 120.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wfhkx")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 30
+columns = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 128.0
+offset_top = -131.0
+offset_right = 264.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "money:
+11111"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+uppercase = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Label"]
+position = Vector2(64, 203)
+scale = Vector2(4.91667, 4.91667)
+texture = ExtResource("3_pq4dp")
+flip_h = true

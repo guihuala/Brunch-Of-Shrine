@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfvnacgudlq8r"]
+
+[ext_resource type="Script" path="res://scripts/slot_container.gd" id="1_1duau"]
+[ext_resource type="PackedScene" uid="uid://b3n2frqekv65y" path="res://scene/inventory/item_info.tscn" id="2_ot0xg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eplld"]
+
+[node name="slot_container" type="PanelContainer"]
+offset_right = 48.0
+offset_bottom = 48.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_eplld")
+script = ExtResource("1_1duau")
+
+[node name="item_info" parent="." instance=ExtResource("2_ot0xg")]
+layout_mode = 2
+stretch_mode = 4
+
+[node name="button_holder" type="Control" parent="."]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="button_holder"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+focus_mode = 0
+
+[connection signal="button_down" from="button_holder/TextureButton" to="." method="_on_texture_button_button_down"]

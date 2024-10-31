@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmjfn34xrfapx"]
+
+[ext_resource type="Texture2D" uid="uid://boa822pn1fgys" path="res://assets/Inventory/Inventory_background.png" id="1_ovnp1"]
+[ext_resource type="Script" path="res://scripts/stationContainer.gd" id="2_ylcru"]
+[ext_resource type="PackedScene" uid="uid://dbuqorcgexj1y" path="res://scene/shop/plant_extractor.tscn" id="3_kfdyx"]
+[ext_resource type="Resource" uid="uid://cnuq1toa8qslm" path="res://resource/plant_resource.tres" id="4_c2y0r"]
+[ext_resource type="Resource" uid="uid://bmgvetmbtq1vl" path="res://resource/seed_resource.tres" id="5_cyn0s"]
+
+[node name="shop" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 576.0
+offset_bottom = 344.0
+size_flags_horizontal = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -142.5
+offset_right = 247.0
+offset_bottom = 142.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ovnp1")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="stationContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+script = ExtResource("2_ylcru")
+seedExtractorScene = ExtResource("3_kfdyx")
+plantResource = ExtResource("4_c2y0r")
+seedResource = ExtResource("5_cyn0s")

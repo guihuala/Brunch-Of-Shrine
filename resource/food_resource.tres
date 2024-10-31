@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="FoodResource" load_steps=13 format=3 uid="uid://00wdkeybfxgm"]
+
+[ext_resource type="Resource" uid="uid://bt205ndenhgdu" path="res://resource/food_list/dynamic kagamimochi.tres" id="1_cfyki"]
+[ext_resource type="Resource" uid="uid://gsggrnfhxjgo" path="res://resource/food_list/wood_ramen.tres" id="1_smk1g"]
+[ext_resource type="Resource" uid="uid://bsqhs33lqkty2" path="res://resource/food_list/halloween_cake.tres" id="2_c3kbd"]
+[ext_resource type="Script" path="res://scripts/cook/food_resource.gd" id="2_cbfbg"]
+[ext_resource type="Resource" uid="uid://digd0gjhbirxt" path="res://resource/food_list/vagetable_sticks.tres" id="3_5uqf4"]
+[ext_resource type="Resource" uid="uid://ginbh7jb7rk4" path="res://resource/food_list/happy_breakfastW.tres" id="3_kt3ur"]
+[ext_resource type="Resource" uid="uid://cuv2p6h7c41tm" path="res://resource/food_list/ink_ramen.tres" id="4_pqrnx"]
+[ext_resource type="Resource" uid="uid://brn5weupqsodu" path="res://resource/food_list/manju.tres" id="5_8yqjw"]
+[ext_resource type="Resource" uid="uid://cru7wps48u6fq" path="res://resource/food_list/rainwater_syrup.tres" id="6_5h23e"]
+[ext_resource type="Resource" uid="uid://c8krw6kb28ki6" path="res://resource/food_list/shaved_ice.tres" id="7_rhnoi"]
+[ext_resource type="Resource" uid="uid://qnjo3p6s07lc" path="res://resource/food_list/slug_miso_soup.tres" id="8_44ppr"]
+[ext_resource type="Resource" uid="uid://swgwyayekxbn" path="res://resource/food_list/soul_soft_candy.tres" id="9_sltrt"]
+
+[resource]
+script = ExtResource("2_cbfbg")
+foodList = Array[Resource("res://scripts/cook/food_data.gd")]([ExtResource("1_cfyki"), ExtResource("2_c3kbd"), ExtResource("3_kt3ur"), ExtResource("4_pqrnx"), ExtResource("5_8yqjw"), ExtResource("6_5h23e"), ExtResource("7_rhnoi"), ExtResource("8_44ppr"), ExtResource("9_sltrt"), ExtResource("3_5uqf4"), ExtResource("1_smk1g")])

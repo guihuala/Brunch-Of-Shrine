@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=5 format=3 uid="uid://b71mp0rd82g21"]
+
+[ext_resource type="Resource" uid="uid://b70e32xybno4x" path="res://resource/quest/tsubakura/tsuba_quest01.tres" id="1_dvhom"]
+[ext_resource type="Texture2D" uid="uid://bmo6qs8xy6rxe" path="res://assets/character/tsubakura.png" id="1_oukty"]
+[ext_resource type="Script" path="res://scripts/character_data.gd" id="2_onlvk"]
+[ext_resource type="Resource" uid="uid://dh8lcxbyxjnt0" path="res://resource/quest/tsubakura/tsuba_quest02.tres" id="3_q6rgo"]
+
+[resource]
+script = ExtResource("2_onlvk")
+character_name = "tsubakura"
+character_texture = ExtResource("1_oukty")
+character_salutation = Array[String](["...", "2222", "3333"])
+quest = Array[Resource("res://scripts/quest_data.gd")]([ExtResource("1_dvhom"), ExtResource("3_q6rgo")])
+isNPC = true

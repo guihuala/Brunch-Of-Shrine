@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=3 uid="uid://ruj103xaajy3"]
+
+[ext_resource type="PackedScene" uid="uid://b3kr2xbx0bc8q" path="res://scene/character/base_character.tscn" id="1_ir8sx"]
+[ext_resource type="Resource" uid="uid://kemwuc53ujg1" path="res://resource/character_list/kanae.tres" id="2_v024y"]
+[ext_resource type="Texture2D" uid="uid://q5vi2wy5jsi0" path="res://assets/character/kanae.png" id="3_kvspm"]
+[ext_resource type="Texture2D" uid="uid://dh87j6qg0qog2" path="res://assets/character/poop.png" id="4_ktck4"]
+
+[sub_resource type="Animation" id="Animation_yogqf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/poop1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-11, -19)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/poop3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-11, -1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/poop2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, -8)]
+}
+
+[sub_resource type="Animation" id="Animation_7sw82"]
+resource_name = "poop_float"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/poop1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-11, -16), Vector2(-11, -19)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/poop3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, -2), Vector2(-13, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/poop2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(12, -8), Vector2(12, -10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_loa3f"]
+_data = {
+"RESET": SubResource("Animation_yogqf"),
+"poop_float": SubResource("Animation_7sw82")
+}
+
+[node name="base_character" instance=ExtResource("1_ir8sx")]
+character_info = ExtResource("2_v024y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_kvspm")
+
+[node name="poop1" type="Sprite2D" parent="Sprite2D" index="0"]
+position = Vector2(-11, -19)
+texture = ExtResource("4_ktck4")
+
+[node name="poop2" type="Sprite2D" parent="Sprite2D" index="1"]
+position = Vector2(12, -8)
+texture = ExtResource("4_ktck4")
+
+[node name="poop3" type="Sprite2D" parent="Sprite2D" index="2"]
+position = Vector2(-11, -1)
+texture = ExtResource("4_ktck4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+autoplay = "poop_float"
+libraries = {
+"": SubResource("AnimationLibrary_loa3f")
+}

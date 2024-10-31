@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbuqorcgexj1y"]
+
+[ext_resource type="PackedScene" uid="uid://b3n2frqekv65y" path="res://scene/inventory/item_info.tscn" id="1_ihbsp"]
+[ext_resource type="Script" path="res://scripts/plant_extractor.gd" id="1_ot6qe"]
+[ext_resource type="Texture2D" uid="uid://cuw76dbywdfq2" path="res://assets/others/arrowRight.png" id="2_n06ys"]
+[ext_resource type="Texture2D" uid="uid://c3vqjwgpd22xt" path="res://assets/others/button_normal.png" id="3_pdtpn"]
+[ext_resource type="Texture2D" uid="uid://ohjcgfcaysph" path="res://assets/others/button_pressed.png" id="4_jqve8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_385h5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mjlt1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_embfp"]
+
+[node name="seedExtractor" type="HBoxContainer"]
+offset_right = 440.0
+offset_bottom = 48.0
+script = ExtResource("1_ot6qe")
+
+[node name="PlantInfo1" parent="." instance=ExtResource("1_ihbsp")]
+layout_mode = 2
+stretch_mode = 4
+
+[node name="*" type="Label" parent="."]
+layout_mode = 2
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_385h5")
+theme_override_styles/focus = SubResource("StyleBoxTexture_mjlt1")
+theme_override_styles/read_only = SubResource("StyleBoxTexture_embfp")
+text = "0"
+alignment = 1
+max_length = 3
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_pdtpn")
+texture_pressed = ExtResource("4_jqve8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="TextureButton"]
+layout_mode = 2
+offset_left = 112.0
+offset_top = 1.0
+offset_right = 160.0
+offset_bottom = 41.0
+texture = ExtResource("2_n06ys")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -19.0
+offset_right = 32.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "change"
+vertical_alignment = 1
+uppercase = true
+
+[node name="PlantInfo2" parent="." instance=ExtResource("1_ihbsp")]
+layout_mode = 2
+stretch_mode = 4
+
+[node name="*2" type="Label" parent="."]
+layout_mode = 2
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_385h5")
+theme_override_styles/focus = SubResource("StyleBoxTexture_mjlt1")
+theme_override_styles/read_only = SubResource("StyleBoxTexture_embfp")
+text = "0"
+alignment = 1
+max_length = 3
+editable = false
+
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]

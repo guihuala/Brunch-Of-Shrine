@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=5 format=3 uid="uid://bmcspxv14ofvf"]
+
+[ext_resource type="PackedScene" uid="uid://ruj103xaajy3" path="res://scene/character/kanae.tscn" id="1_diy4d"]
+[ext_resource type="PackedScene" uid="uid://d0qcvrjlr1xke" path="res://scene/character/sese.tscn" id="2_b7ewy"]
+[ext_resource type="Script" path="res://scripts/character_resource.gd" id="2_puh8l"]
+[ext_resource type="PackedScene" uid="uid://bolh3a3nqn4hn" path="res://scene/character/tenkai.tscn" id="4_2n7k1"]
+
+[resource]
+script = ExtResource("2_puh8l")
+character_list = Array[PackedScene]([ExtResource("1_diy4d"), ExtResource("2_b7ewy"), ExtResource("4_2n7k1")])

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvwcrt17a7qmp"]
+
+[ext_resource type="Texture2D" uid="uid://h21j6sv14l2u" path="res://assets/dishes/dynamic_kagamimochi.png" id="1_2ts5e"]
+[ext_resource type="Script" path="res://scene/plate/buble.gd" id="2_xq4y2"]
+
+[node name="buble" type="Sprite2D"]
+texture = ExtResource("1_2ts5e")
+script = ExtResource("2_xq4y2")
+shrink_time = 8.0

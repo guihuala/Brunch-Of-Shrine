@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodData" load_steps=2 format=3 uid="uid://bt205ndenhgdu"]
+
+[ext_resource type="Script" path="res://scripts/cook/food_data.gd" id="1_l0xhq"]
+
+[resource]
+script = ExtResource("1_l0xhq")
+food_name = "dynamic kagamimochi"
+texture_path = "res://assets/dishes/dynamic_kagamimochi.png"
+price = 5
+quantity = 0

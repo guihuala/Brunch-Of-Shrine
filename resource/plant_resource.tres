@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PlantResource" load_steps=4 format=3 uid="uid://cnuq1toa8qslm"]
+
+[ext_resource type="Resource" uid="uid://6d5iaw7ulxcv" path="res://resource/plant_list/blue_bell.tres" id="1_aroop"]
+[ext_resource type="Resource" uid="uid://p5ftjy3ptptq" path="res://resource/plant_list/daisy.tres" id="2_iqyxx"]
+[ext_resource type="Script" path="res://scripts/plant/plant_resource.gd" id="3_5x7q0"]
+
+[resource]
+script = ExtResource("3_5x7q0")
+plantList = Array[Resource("res://scripts/plant/plant_data.gd")]([ExtResource("1_aroop"), ExtResource("2_iqyxx")])

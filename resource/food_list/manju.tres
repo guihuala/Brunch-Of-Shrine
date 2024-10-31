@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="FoodData" load_steps=2 format=3 uid="uid://brn5weupqsodu"]
+
+[ext_resource type="Script" path="res://scripts/cook/food_data.gd" id="1_ujl1h"]
+
+[resource]
+script = ExtResource("1_ujl1h")
+food_name = "manju"
+texture_path = "res://assets/dishes/steamed_bun.png"
+price = 1
+quantity = 0
+delicious = 0
+insipid = 5
+sweetness = 1
+bitterness = 0
+salty = 2
+sour = 0
+spicy = 0

@@ -1,0 +1,74 @@
+[gd_scene load_steps=14 format=3 uid="uid://cfu3gskg3dwp7"]
+
+[ext_resource type="Script" path="res://scripts/shop_cell.gd" id="1_2d3e2"]
+[ext_resource type="PackedScene" uid="uid://b3n2frqekv65y" path="res://scene/inventory/item_info.tscn" id="1_pvkas"]
+[ext_resource type="Resource" uid="uid://6d5iaw7ulxcv" path="res://resource/plant_list/blue_bell.tres" id="2_23n44"]
+[ext_resource type="Texture2D" uid="uid://c3vqjwgpd22xt" path="res://assets/others/button_normal.png" id="2_n4bwe"]
+[ext_resource type="Texture2D" uid="uid://ohjcgfcaysph" path="res://assets/others/button_pressed.png" id="3_7nlsa"]
+[ext_resource type="Resource" uid="uid://cnuq1toa8qslm" path="res://resource/plant_resource.tres" id="3_pa6h8"]
+[ext_resource type="Resource" uid="uid://bmgvetmbtq1vl" path="res://resource/seed_resource.tres" id="4_0bwnp"]
+[ext_resource type="Resource" uid="uid://00wdkeybfxgm" path="res://resource/food_resource.tres" id="5_4cwdw"]
+[ext_resource type="Texture2D" uid="uid://c7vktcgtnhcc1" path="res://assets/others/button_disabled.png" id="9_6oqsb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yaohd"]
+texture = ExtResource("2_n4bwe")
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h6egd"]
+texture = ExtResource("3_7nlsa")
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mc4s7"]
+texture = ExtResource("9_6oqsb")
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pk3ib"]
+
+[node name="shop_cell" type="VBoxContainer"]
+offset_right = 48.0
+offset_bottom = 104.0
+theme_override_constants/separation = 4
+script = ExtResource("1_2d3e2")
+item_info = ExtResource("2_23n44")
+price = 10
+amount = 10
+plant_resource = ExtResource("3_pa6h8")
+seed_resource = ExtResource("4_0bwnp")
+foodResource = ExtResource("5_4cwdw")
+
+[node name="item_info" parent="." instance=ExtResource("1_pvkas")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.760784, 0.533333, 0.368627, 1)
+theme_override_font_sizes/font_size = 8
+text = "11111111111"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="amount" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.760784, 0.533333, 0.368627, 1)
+theme_override_font_sizes/font_size = 8
+text = "11111111111"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="buy" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_yaohd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_h6egd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_h6egd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_mc4s7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pk3ib")
+text = "BUY"
+
+[connection signal="button_down" from="buy" to="." method="_on_buy_button_down"]

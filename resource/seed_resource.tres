@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SeedResource" load_steps=4 format=3 uid="uid://bmgvetmbtq1vl"]
+
+[ext_resource type="Script" path="res://scripts/seed/seed_resource.gd" id="1_874fg"]
+[ext_resource type="Resource" uid="uid://c2l26v4ea8fky" path="res://resource/seed_sence_data/blue_bell.tres" id="2_t2ej5"]
+[ext_resource type="Resource" uid="uid://d2g77fxv7kvxi" path="res://resource/seed_sence_data/daisy.tres" id="3_6kxod"]
+
+[resource]
+script = ExtResource("1_874fg")
+seedList = Array[Resource("res://scripts/seed/seed_data.gd")]([ExtResource("2_t2ej5"), ExtResource("3_6kxod")])

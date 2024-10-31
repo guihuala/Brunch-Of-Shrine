@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwvuv43auyh8m"]
+
+[ext_resource type="Script" path="res://scripts/plant/base_plant.gd" id="1_34mx5"]
+
+[node name="plant" type="Node2D"]
+script = ExtResource("1_34mx5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodData" load_steps=2 format=3 uid="uid://swgwyayekxbn"]
+
+[ext_resource type="Script" path="res://scripts/cook/food_data.gd" id="1_0oxl7"]
+
+[resource]
+script = ExtResource("1_0oxl7")
+food_name = "soul soft candy"
+texture_path = "res://assets/dishes/soul_soft_candy.png"
+price = 0
+quantity = 0

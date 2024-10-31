@@ -1,0 +1,181 @@
+[gd_scene load_steps=17 format=3 uid="uid://bxctin51smwgl"]
+
+[ext_resource type="Texture2D" uid="uid://boa822pn1fgys" path="res://assets/Inventory/Inventory_background.png" id="1_0d1ic"]
+[ext_resource type="Script" path="res://scene/shop/quantity_dialog.gd" id="1_q5mt7"]
+[ext_resource type="Texture2D" uid="uid://c3vqjwgpd22xt" path="res://assets/others/button_normal.png" id="2_1b7dq"]
+[ext_resource type="Texture2D" uid="uid://ohjcgfcaysph" path="res://assets/others/button_pressed.png" id="3_6ncyl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xxwx1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uddho"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dxgex"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tndxm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ifpmr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tth7p"]
+bg_color = Color(0.517647, 0.517647, 0.517647, 0.517647)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qakj2"]
+bg_color = Color(0.517647, 0.517647, 0.517647, 0.517647)
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a623s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kxtiv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j4ldw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8or2n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqf07"]
+
+[node name="quantity_dialog" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -171.0
+offset_right = 288.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_q5mt7")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -84.0
+offset_right = 158.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0d1ic")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.760784, 0.533333, 0.368627, 1)
+text = "Choose your purchase quantity"
+horizontal_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="sub" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xxwx1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uddho")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dxgex")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tndxm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ifpmr")
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_tth7p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qakj2")
+text = "0"
+placeholder_text = "0"
+alignment = 1
+max_length = 2
+
+[node name="add" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a623s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kxtiv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j4ldw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8or2n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hqf07")
+text = "+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="buy" type="TextureButton" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_1b7dq")
+texture_pressed = ExtResource("3_6ncyl")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/buy"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "sure"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="cancel" type="TextureButton" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_1b7dq")
+texture_pressed = ExtResource("3_6ncyl")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/cancel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "cancel"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[connection signal="button_down" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/sub" to="." method="_on_sub_button_down"]
+[connection signal="text_changed" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="button_down" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/add" to="." method="_on_add_button_down"]
+[connection signal="button_down" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/buy" to="." method="_on_buy_button_down"]
+[connection signal="button_down" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/cancel" to="." method="_on_cancel_button_down"]

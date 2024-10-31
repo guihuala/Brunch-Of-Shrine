@@ -1,0 +1,99 @@
+[gd_scene load_steps=17 format=3 uid="uid://drsm02fihknbp"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_tcfjn"]
+[ext_resource type="PackedScene" uid="uid://ca6o7ac56rk0i" path="res://scene/inventory/inventory_.tscn" id="1_yldtf"]
+[ext_resource type="PackedScene" uid="uid://dmjfn34xrfapx" path="res://scene/shop/shop.tscn" id="3_h6f0y"]
+[ext_resource type="Texture2D" uid="uid://c3vqjwgpd22xt" path="res://assets/others/button_normal.png" id="3_rw07r"]
+[ext_resource type="Texture2D" uid="uid://bsge26ywd1ft2" path="res://assets/others/green_circle.png" id="4_i2orh"]
+[ext_resource type="PackedScene" uid="uid://b83o6kfu67a82" path="res://scene/kitchen/kitchen.tscn" id="5_mqpqo"]
+[ext_resource type="PackedScene" uid="uid://b80hx50tn4hte" path="res://scene/minimap.tscn" id="6_7ejhl"]
+[ext_resource type="Texture2D" uid="uid://bch8hue0286cx" path="res://assets/others/green_circle_pressed.png" id="6_jjb06"]
+[ext_resource type="Resource" uid="uid://cnuq1toa8qslm" path="res://resource/plant_resource.tres" id="8_f8vyx"]
+[ext_resource type="PackedScene" uid="uid://bs7wi2pee7k6e" path="res://scene/inventory/bag.tscn" id="8_t7qhp"]
+[ext_resource type="Resource" uid="uid://00wdkeybfxgm" path="res://resource/food_resource.tres" id="10_fy7ei"]
+[ext_resource type="PackedScene" uid="uid://culgkiqhmfpkn" path="res://scene/character/character_info.tscn" id="12_57yl7"]
+[ext_resource type="PackedScene" uid="uid://b1tc6j5qtr3dp" path="res://scene/shop/stall.tscn" id="13_luc0b"]
+[ext_resource type="PackedScene" uid="uid://f3i244v824u6" path="res://scene/plate/wash_plate.tscn" id="14_8xrhl"]
+[ext_resource type="PackedScene" uid="uid://bsugx5w81ynr7" path="res://scene/setting/setting.tscn" id="15_05jme"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eab8g"]
+texture = ExtResource("3_rw07r")
+
+[node name="HUD" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_tcfjn")
+
+[node name="inventory" parent="." instance=ExtResource("1_yldtf")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -42.0
+offset_right = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+texture_filter = 3
+texture_repeat = 1
+offset_left = 8.0
+offset_top = 256.0
+offset_right = 56.0
+offset_bottom = 304.0
+focus_mode = 0
+texture_normal = ExtResource("4_i2orh")
+texture_pressed = ExtResource("6_jjb06")
+stretch_mode = 3
+
+[node name="healthyBar" type="ProgressBar" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = 104.0
+offset_bottom = 32.0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxTexture_eab8g")
+value = 100.0
+
+[node name="minimap" parent="." instance=ExtResource("6_7ejhl")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_top = -88.0
+offset_right = 68.0
+offset_bottom = -2.0
+grow_horizontal = 2
+
+[node name="shop" parent="." instance=ExtResource("3_h6f0y")]
+visible = false
+pivot_offset = Vector2(288, 162)
+
+[node name="kitchen" parent="." instance=ExtResource("5_mqpqo")]
+visible = false
+plantResource = ExtResource("8_f8vyx")
+foodResource = ExtResource("10_fy7ei")
+
+[node name="bag" parent="." instance=ExtResource("8_t7qhp")]
+visible = false
+offset_right = 42.0
+offset_bottom = 42.0
+foodsResource = ExtResource("10_fy7ei")
+
+[node name="character_info" parent="." instance=ExtResource("12_57yl7")]
+visible = false
+
+[node name="stall" parent="." instance=ExtResource("13_luc0b")]
+visible = false
+
+[node name="wash_plate" parent="." instance=ExtResource("14_8xrhl")]
+visible = false
+
+[node name="setting" parent="." instance=ExtResource("15_05jme")]
+visible = false
+
+[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]

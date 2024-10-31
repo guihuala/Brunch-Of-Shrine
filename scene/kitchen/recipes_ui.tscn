@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://0s0ui5t2mgvl"]
+
+[ext_resource type="Script" path="res://scripts/recipes_ui.gd" id="1_u5nl3"]
+[ext_resource type="PackedScene" uid="uid://b3n2frqekv65y" path="res://scene/inventory/item_info.tscn" id="2_2on0k"]
+[ext_resource type="FontFile" uid="uid://duajjyuqbbmug" path="res://assets/font/hachicro.ttf" id="3_10o3t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fvjb6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s5sp7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_da8yb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_okc84"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tiugk"]
+
+[node name="recipes_ui" type="Button"]
+offset_right = 192.0
+offset_bottom = 48.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fvjb6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_s5sp7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_da8yb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_okc84")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tiugk")
+flat = true
+script = ExtResource("1_u5nl3")
+
+[node name="item_info" parent="." instance=ExtResource("2_2on0k")]
+layout_mode = 2
+offset_right = 48.0
+offset_bottom = 48.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 48.0
+offset_right = 192.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("3_10o3t")
+theme_override_font_sizes/font_size = 8
+text = "name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

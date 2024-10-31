@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=4 format=3 uid="uid://cewi6wjbaubfa"]
+
+[ext_resource type="Resource" uid="uid://6d5iaw7ulxcv" path="res://resource/plant_list/blue_bell.tres" id="1_dr7kd"]
+[ext_resource type="Resource" uid="uid://bsqhs33lqkty2" path="res://resource/food_list/halloween_cake.tres" id="2_olrej"]
+[ext_resource type="Script" path="res://scripts/cook/recipe.gd" id="3_ch5fb"]
+
+[resource]
+script = ExtResource("3_ch5fb")
+food_name = "halloween cake"
+desc = ""
+price = 5
+waste_time = 3
+Ingredients = Array[Resource("res://scripts/plant/plant_data.gd")]([ExtResource("1_dr7kd")])
+result = ExtResource("2_olrej")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=4 format=3 uid="uid://b70e32xybno4x"]
+
+[ext_resource type="Resource" uid="uid://bsqhs33lqkty2" path="res://resource/food_list/halloween_cake.tres" id="1_phe2k"]
+[ext_resource type="Resource" uid="uid://6d5iaw7ulxcv" path="res://resource/plant_list/blue_bell.tres" id="2_ofmee"]
+[ext_resource type="Script" path="res://scripts/quest_data.gd" id="3_8t6t7"]
+
+[resource]
+script = ExtResource("3_8t6t7")
+name = "test"
+reward = ExtResource("2_ofmee")
+reward_amount = 10
+require = Array[Resource]([ExtResource("1_phe2k")])
+desc = "just for testing"

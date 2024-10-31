@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://ca6o7ac56rk0i"]
+
+[ext_resource type="Script" path="res://scripts/inventory_.gd" id="1_nnoyv"]
+[ext_resource type="PackedScene" uid="uid://dfvnacgudlq8r" path="res://scene/inventory/slot_container.tscn" id="2_7qqv4"]
+[ext_resource type="Resource" uid="uid://bmgvetmbtq1vl" path="res://resource/seed_resource.tres" id="3_opkyy"]
+[ext_resource type="Texture2D" uid="uid://boa822pn1fgys" path="res://assets/Inventory/Inventory_background.png" id="4_m727q"]
+[ext_resource type="Texture2D" uid="uid://cjdq8cb2wk2h3" path="res://assets/Inventory/Inventory_select.png" id="5_k8jjw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5gexi"]
+
+[node name="inventory_" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5gexi")
+script = ExtResource("1_nnoyv")
+slotScene = ExtResource("2_7qqv4")
+seedResource = ExtResource("3_opkyy")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("4_m727q")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 11
+theme_override_constants/margin_top = 11
+theme_override_constants/margin_right = 11
+theme_override_constants/margin_bottom = 11
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 8
+
+[node name="selected" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_k8jjw")
+stretch_mode = 4

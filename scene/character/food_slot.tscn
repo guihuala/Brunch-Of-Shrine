@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjd0q2mr1opbv"]
+
+[ext_resource type="Script" path="res://scripts/food_slot.gd" id="1_o2rmc"]
+[ext_resource type="PackedScene" uid="uid://b3n2frqekv65y" path="res://scene/inventory/item_info.tscn" id="1_q6fyo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e4tby"]
+
+[node name="food_slot" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxEmpty_e4tby")
+script = ExtResource("1_o2rmc")
+
+[node name="item_info" parent="." instance=ExtResource("1_q6fyo")]
+layout_mode = 2
+
+[node name="button_holder" type="Control" parent="."]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="button_holder"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+focus_mode = 1
+
+[connection signal="button_down" from="button_holder/TextureButton" to="." method="_on_texture_button_button_down"]

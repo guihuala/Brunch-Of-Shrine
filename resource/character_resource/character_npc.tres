@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=4 format=3 uid="uid://dftc8s7yjm1n4"]
+
+[ext_resource type="PackedScene" uid="uid://brq4ymyx08v2i" path="res://scene/character/tsubakura.tscn" id="1_tmxes"]
+[ext_resource type="Script" path="res://scripts/character_resource.gd" id="2_6q8gr"]
+[ext_resource type="PackedScene" uid="uid://dma0m1pe7m1uv" path="res://scene/character/shion.tscn" id="2_jxi8q"]
+
+[resource]
+script = ExtResource("2_6q8gr")
+character_list = Array[PackedScene]([ExtResource("1_tmxes"), ExtResource("2_jxi8q")])

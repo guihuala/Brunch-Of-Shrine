@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodData" load_steps=2 format=3 uid="uid://crqsrvtoiybdn"]
+
+[ext_resource type="Script" path="res://scripts/cook/food_data.gd" id="1_t2nja"]
+
+[resource]
+script = ExtResource("1_t2nja")
+food_name = "happy breakfast(j)"
+texture_path = "res://assets/dishes/happy_breakfast(Japanese).png"
+price = 10
+quantity = 1

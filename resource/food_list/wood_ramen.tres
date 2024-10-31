@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodData" load_steps=2 format=3 uid="uid://gsggrnfhxjgo"]
+
+[ext_resource type="Script" path="res://scripts/cook/food_data.gd" id="1_sb67m"]
+
+[resource]
+script = ExtResource("1_sb67m")
+food_name = "wood ramen"
+texture_path = "res://assets/dishes/wood_ramen.png"
+price = 0
+quantity = 0

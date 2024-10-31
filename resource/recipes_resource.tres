@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RecipeResource" load_steps=8 format=3 uid="uid://dfkbmk0msm863"]
+
+[ext_resource type="Resource" uid="uid://dblmlu4ub3xin" path="res://resource/recipe_list/wood_ramen.tres" id="1_fjvrr"]
+[ext_resource type="Resource" uid="uid://k7oio2pqa7h8" path="res://resource/recipe_list/happy_breakfastJ.tres" id="2_3x6jd"]
+[ext_resource type="Script" path="res://scripts/cook/recipe_resource.gd" id="2_lc4ed"]
+[ext_resource type="Resource" uid="uid://cy4x311yodp3y" path="res://resource/recipe_list/happy_breakfastW.tres" id="3_13xfm"]
+[ext_resource type="Resource" uid="uid://dx72cusckrpvs" path="res://resource/recipe_list/vegetable_sticks.tres" id="3_nxhjr"]
+[ext_resource type="Resource" uid="uid://cewi6wjbaubfa" path="res://resource/recipe_list/halloween_cake.tres" id="4_j3gef"]
+[ext_resource type="Resource" uid="uid://dl8kf06c8grd3" path="res://resource/recipe_list/dynamic_kagamimochi.tres" id="5_v7l77"]
+
+[resource]
+script = ExtResource("2_lc4ed")
+recipeList = Array[Resource("res://scripts/cook/recipe.gd")]([ExtResource("1_fjvrr"), ExtResource("2_3x6jd"), ExtResource("3_13xfm"), ExtResource("3_nxhjr"), ExtResource("4_j3gef"), ExtResource("5_v7l77")])

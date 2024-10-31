@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3 uid="uid://gq6l8csaehic"]
+
+[ext_resource type="Texture2D" uid="uid://dfii3kw76rfm1" path="res://assets/character/sese.png" id="1_okor1"]
+[ext_resource type="Resource" uid="uid://b70e32xybno4x" path="res://resource/quest/tsubakura/tsuba_quest01.tres" id="2_7pu2t"]
+[ext_resource type="Script" path="res://scripts/character_data.gd" id="2_t2eiu"]
+
+[resource]
+script = ExtResource("2_t2eiu")
+character_name = "sese"
+character_texture = ExtResource("1_okor1")
+character_salutation = Array[String](["wow"])
+quest = Array[Resource("res://scripts/quest_data.gd")]([ExtResource("2_7pu2t")])
+isNPC = false

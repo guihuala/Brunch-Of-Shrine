@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://gpfqmey0wqjn"]
+
+[ext_resource type="Texture2D" uid="uid://c3vqjwgpd22xt" path="res://assets/others/button_normal.png" id="1_5086j"]
+[ext_resource type="Texture2D" uid="uid://ohjcgfcaysph" path="res://assets/others/button_pressed.png" id="2_s0qyw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vafli"]
+content_margin_left = 11.0
+content_margin_top = 4.0
+content_margin_right = 11.0
+content_margin_bottom = 4.0
+texture = ExtResource("1_5086j")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2nk88"]
+content_margin_left = 11.0
+content_margin_top = 4.0
+content_margin_right = 11.0
+content_margin_bottom = 4.0
+texture = ExtResource("2_s0qyw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68hml"]
+content_margin_left = 11.0
+content_margin_top = 4.0
+content_margin_right = 11.0
+content_margin_bottom = 4.0
+texture = ExtResource("2_s0qyw")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_who06"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kduop"]
+
+[node name="Eat" type="Button"]
+size_flags_horizontal = 6
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_vafli")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2nk88")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_68hml")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_who06")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kduop")
+text = "EAT FOOD"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=4 format=3 uid="uid://cy4x311yodp3y"]
+
+[ext_resource type="Resource" uid="uid://6d5iaw7ulxcv" path="res://resource/plant_list/blue_bell.tres" id="1_rljph"]
+[ext_resource type="Resource" uid="uid://ginbh7jb7rk4" path="res://resource/food_list/happy_breakfastW.tres" id="2_xervf"]
+[ext_resource type="Script" path="res://scripts/cook/recipe.gd" id="3_ltflx"]
+
+[resource]
+script = ExtResource("3_ltflx")
+food_name = "happy breakfast(w)"
+desc = ""
+price = 10
+waste_time = 8
+Ingredients = Array[Resource("res://scripts/plant/plant_data.gd")]([ExtResource("1_rljph")])
+result = ExtResource("2_xervf")

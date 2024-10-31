@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodData" load_steps=2 format=3 uid="uid://c8krw6kb28ki6"]
+
+[ext_resource type="Script" path="res://scripts/cook/food_data.gd" id="1_03utn"]
+
+[resource]
+script = ExtResource("1_03utn")
+food_name = "shaved ice"
+texture_path = "res://assets/dishes/shaved_ice.png"
+price = 0
+quantity = 0

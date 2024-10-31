@@ -1,0 +1,486 @@
+[gd_scene load_steps=41 format=3 uid="uid://jdsk47k15o8"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_dq3g7"]
+[ext_resource type="Texture2D" uid="uid://ctq0ey3yk5k6h" path="res://assets/Inventory/Inventory_Slot.png" id="2_184nc"]
+[ext_resource type="Texture2D" uid="uid://c7dx17m2iais4" path="res://assets/others/menu.png" id="2_k3e6a"]
+[ext_resource type="Texture2D" uid="uid://dbctq0g7pkak6" path="res://assets/others/title.png" id="3_o03og"]
+[ext_resource type="Texture2D" uid="uid://c3vqjwgpd22xt" path="res://assets/others/button_normal.png" id="4_fg5xh"]
+[ext_resource type="Texture2D" uid="uid://biu6cwkw337k3" path="res://assets/others/yabu_anim/yabu_新动画_2_01.png" id="5_6ddvs"]
+[ext_resource type="Texture2D" uid="uid://ohjcgfcaysph" path="res://assets/others/button_pressed.png" id="5_snwhd"]
+[ext_resource type="Texture2D" uid="uid://boa822pn1fgys" path="res://assets/Inventory/Inventory_background.png" id="6_jml7b"]
+[ext_resource type="Texture2D" uid="uid://dq8pqyxdcqvji" path="res://assets/others/yabu_anim/yabu_新动画_2_02.png" id="6_lqm8d"]
+[ext_resource type="Texture2D" uid="uid://bsge26ywd1ft2" path="res://assets/others/green_circle.png" id="7_den5p"]
+[ext_resource type="Texture2D" uid="uid://b2o3wtfahd277" path="res://assets/others/yabu_anim/yabu_新动画_2_03.png" id="7_g0ocq"]
+[ext_resource type="Texture2D" uid="uid://dpqqupqqj6xcd" path="res://assets/others/yabu_anim/yabu_新动画_2_04.png" id="8_qgnsf"]
+[ext_resource type="Texture2D" uid="uid://bch8hue0286cx" path="res://assets/others/green_circle_pressed.png" id="8_sbgh4"]
+[ext_resource type="Texture2D" uid="uid://crb8niknfsvia" path="res://assets/others/yabu_anim/yabu_新动画_2_05.png" id="9_p06pa"]
+[ext_resource type="Texture2D" uid="uid://dfn3cmyxtb4aj" path="res://assets/others/yabu_anim/yabu_新动画_2_06.png" id="10_b1weu"]
+[ext_resource type="Texture2D" uid="uid://bmw5limm2h65u" path="res://assets/others/yabu_anim/yabu_新动画_2_07.png" id="11_y0eh0"]
+[ext_resource type="Texture2D" uid="uid://ssrs7xfn00s1" path="res://assets/others/yabu_anim/yabu_新动画_2_08.png" id="12_c1afa"]
+[ext_resource type="Texture2D" uid="uid://brfr8xtp3cp44" path="res://assets/others/yabu_anim/yabu_新动画_2_09.png" id="13_q7rfh"]
+[ext_resource type="Texture2D" uid="uid://b1fy1r4d0jase" path="res://assets/others/yabu_anim/yabu_新动画_2_10.png" id="14_ebcdd"]
+[ext_resource type="Texture2D" uid="uid://cgn3alt0ndkws" path="res://assets/others/yabu_anim/yabu_新动画_2_11.png" id="15_f4b74"]
+[ext_resource type="Texture2D" uid="uid://bnhhknm85p44m" path="res://assets/others/yabu_anim/yabu_新动画_2_12.png" id="16_2jvrd"]
+[ext_resource type="Texture2D" uid="uid://2mpigiacapse" path="res://assets/others/yabu_anim/yabu_新动画_2_13.png" id="17_x01te"]
+[ext_resource type="Texture2D" uid="uid://drcnps5wnwlhy" path="res://assets/others/yabu_anim/yabu_新动画_2_14.png" id="18_h3noy"]
+[ext_resource type="Texture2D" uid="uid://rqx177n2gpgg" path="res://assets/others/yabu_anim/yabu_新动画_2_15.png" id="19_r0d0e"]
+[ext_resource type="Texture2D" uid="uid://du65vpfx1jp2i" path="res://assets/others/yabu_anim/yabu_新动画_2_16.png" id="20_qgysc"]
+[ext_resource type="Texture2D" uid="uid://dtxh4h0n3b3gg" path="res://assets/others/yabu_anim/yabu_新动画_2_17.png" id="21_eapca"]
+[ext_resource type="Texture2D" uid="uid://ki4a5vkdubeg" path="res://assets/others/yabu_anim/yabu_新动画_2_18.png" id="22_1lhcd"]
+[ext_resource type="Texture2D" uid="uid://cacvkfd7esx3r" path="res://assets/others/yabu_anim/yabu_新动画_2_19.png" id="23_1tf2a"]
+[ext_resource type="Texture2D" uid="uid://dr00jyg4pxiqe" path="res://assets/others/yabu_anim/yabu_新动画_2_20.png" id="24_t0iyw"]
+[ext_resource type="Texture2D" uid="uid://dae4mk2ji8q6v" path="res://assets/others/yabu_anim/yabu_新动画_2_21.png" id="25_dm08g"]
+[ext_resource type="Texture2D" uid="uid://d6m1ha7xlqle" path="res://assets/others/yabu_anim/yabu_新动画_2_22.png" id="26_2eqyu"]
+[ext_resource type="Texture2D" uid="uid://bfeg35o5qy2ao" path="res://assets/others/yabu_anim/yabu_新动画_2_23.png" id="27_l7t5n"]
+[ext_resource type="Texture2D" uid="uid://dkl1x2b4c8ujr" path="res://assets/others/yabu_anim/yabu_新动画_2_24.png" id="28_o0r8e"]
+
+[sub_resource type="GDScript" id="GDScript_bbuoq"]
+script/source = "extends Control
+
+var timestamp:String
+var play_time
+var index
+
+func update_index_label():
+	$NinePatchRect/MarginContainer/HBoxContainer/Label.text = index
+
+func update_playtime():
+	$NinePatchRect/MarginContainer/HBoxContainer/Label2.text = timestamp + \"play time:\\n\" + play_time
+"
+
+[sub_resource type="PackedScene" id="PackedScene_x0pss"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("save", "layout_mode", "anchors_preset", "script", "Control", "NinePatchRect", "offset_right", "offset_bottom", "texture", "patch_margin_left", "patch_margin_top", "patch_margin_right", "patch_margin_bottom", "MarginContainer", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "theme_override_constants/margin_left", "theme_override_constants/margin_top", "theme_override_constants/margin_right", "theme_override_constants/margin_bottom", "HBoxContainer", "Label", "size_flags_horizontal", "theme_override_colors/font_color", "text", "Label2", "theme_override_font_sizes/font_size", "horizontal_alignment", "uppercase"),
+"node_count": 6,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 4, 0, -1, 3, 1, 0, 2, 1, 3, 2, 0, 0, 0, 5, 5, -1, 8, 1, 1, 6, 3, 7, 4, 8, 5, 9, 6, 10, 6, 11, 6, 12, 6, 0, 1, 0, 13, 13, -1, 10, 1, 7, 2, 8, 14, 9, 15, 9, 16, 10, 17, 10, 18, 11, 19, 11, 20, 11, 21, 11, 0, 2, 0, 22, 22, -1, 1, 1, 10, 0, 3, 0, 23, 23, -1, 4, 1, 10, 24, 1, 25, 12, 26, 13, 0, 3, 0, 23, 27, -1, 7, 1, 10, 24, 0, 25, 12, 28, 14, 26, 15, 29, 10, 30, 16, 0),
+"variants": [3, 0, SubResource("GDScript_bbuoq"), 472.0, 48.0, ExtResource("2_184nc"), 11, 1, 15, 1.0, 2, 5, Color(0.760784, 0.533333, 0.368627, 1), "01", 8, "2024/8/6
+play time:
+", true],
+"version": 3
+}
+
+[sub_resource type="Animation" id="Animation_m25ne"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect/TextureRect2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, 24)]
+}
+
+[sub_resource type="Animation" id="Animation_1y0oa"]
+resource_name = "menu"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect/TextureRect2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(32, 24), Vector2(32, 32), Vector2(32, 24)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8541q"]
+_data = {
+"RESET": SubResource("Animation_m25ne"),
+"menu": SubResource("Animation_1y0oa")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rl1mr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6ddvs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lqm8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g0ocq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qgnsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_p06pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_b1weu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_y0eh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_c1afa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_q7rfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ebcdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_f4b74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2jvrd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_x01te")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_h3noy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_r0d0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_qgysc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_eapca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_1lhcd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_1tf2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_t0iyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_dm08g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_2eqyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_l7t5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_o0r8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_o0r8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_l7t5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_2eqyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_dm08g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_t0iyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_1tf2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_1lhcd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_eapca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_qgysc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_r0d0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_h3noy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_x01te")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2jvrd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_f4b74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ebcdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_q7rfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_c1afa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_y0eh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_b1weu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_p06pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qgnsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g0ocq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lqm8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6ddvs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yhc4g"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dq3g7")
+save = SubResource("PackedScene_x0pss")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "menu"
+libraries = {
+"": SubResource("AnimationLibrary_8541q")
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_k3e6a")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.292
+anchor_top = 0.311
+anchor_right = 0.292
+anchor_bottom = 0.311
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 304.0
+offset_bottom = 189.0
+texture = ExtResource("3_o03og")
+stretch_mode = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect"]
+position = Vector2(440, 184)
+sprite_frames = SubResource("SpriteFrames_rl1mr")
+autoplay = "default"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = 45.0
+offset_right = 280.0
+offset_bottom = 141.0
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_fg5xh")
+texture_pressed = ExtResource("5_snwhd")
+texture_hover = ExtResource("5_snwhd")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "let's cook!!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="about" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/about"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "about"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="about_panel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 342.0
+
+[node name="load_data" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yhc4g")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="load_data"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -155.0
+offset_right = 64.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_jml7b")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="back" type="TextureButton" parent="load_data/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -123.0
+offset_right = 94.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_fg5xh")
+texture_pressed = ExtResource("5_snwhd")
+texture_hover = ExtResource("5_snwhd")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="load_data/NinePatchRect/back"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -9.5
+offset_right = 40.0
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "back"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="start_game" type="TextureButton" parent="load_data/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -187.0
+offset_right = 94.0
+offset_bottom = -138.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_fg5xh")
+texture_pressed = ExtResource("5_snwhd")
+texture_hover = ExtResource("5_snwhd")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="load_data/NinePatchRect/start_game"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -9.5
+offset_right = 40.0
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "start
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="delete" type="TextureButton" parent="load_data/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -59.0
+offset_right = 20.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("7_den5p")
+texture_pressed = ExtResource("8_sbgh4")
+stretch_mode = 3
+
+[connection signal="button_down" from="VBoxContainer/TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_down" from="load_data/NinePatchRect/back" to="." method="_on_back_button_down"]
+[connection signal="button_down" from="load_data/NinePatchRect/start_game" to="." method="_on_start_game_button_down"]
+[connection signal="button_down" from="load_data/NinePatchRect/delete" to="." method="_on_delete_button_down"]

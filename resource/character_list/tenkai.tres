@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3 uid="uid://cq57twyl8rype"]
+
+[ext_resource type="Texture2D" uid="uid://d0d2mp7fhhl60" path="res://assets/character/tenkai.png" id="1_5n3tr"]
+[ext_resource type="Resource" uid="uid://pt044qlxrawy" path="res://resource/quest/tenkai/tenkai_test01.tres" id="2_afdk2"]
+[ext_resource type="Script" path="res://scripts/character_data.gd" id="2_bp5wb"]
+
+[resource]
+script = ExtResource("2_bp5wb")
+character_name = "tenkai"
+character_texture = ExtResource("1_5n3tr")
+character_salutation = Array[String](["what a nice day."])
+quest = Array[Resource("res://scripts/quest_data.gd")]([ExtResource("2_afdk2")])
+isNPC = false

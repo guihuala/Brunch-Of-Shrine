@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkynf21gdtjan"]
+
+[ext_resource type="Script" path="res://scene/shop/daily_money.gd" id="1_pqsl7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj0nk"]
+size = Vector2(32, 16)
+
+[node name="daily_money" type="Area2D"]
+script = ExtResource("1_pqsl7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_yj0nk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

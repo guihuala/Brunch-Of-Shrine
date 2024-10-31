@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodData" load_steps=2 format=3 uid="uid://qnjo3p6s07lc"]
+
+[ext_resource type="Script" path="res://scripts/cook/food_data.gd" id="1_yboe0"]
+
+[resource]
+script = ExtResource("1_yboe0")
+food_name = "slug miso soup"
+texture_path = "res://assets/dishes/slug_miso_soup.png"
+price = 0
+quantity = 0

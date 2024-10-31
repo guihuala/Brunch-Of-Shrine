@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodData" load_steps=2 format=3 uid="uid://digd0gjhbirxt"]
+
+[ext_resource type="Script" path="res://scripts/cook/food_data.gd" id="1_roi8y"]
+
+[resource]
+script = ExtResource("1_roi8y")
+food_name = "vegetable sticks"
+texture_path = "res://assets/dishes/vegetable_sticks.png"
+price = 0
+quantity = 0

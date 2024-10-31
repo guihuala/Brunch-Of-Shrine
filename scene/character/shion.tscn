@@ -1,0 +1,15 @@
+[gd_scene load_steps=6 format=3 uid="uid://dma0m1pe7m1uv"]
+
+[ext_resource type="PackedScene" uid="uid://b3kr2xbx0bc8q" path="res://scene/character/base_character.tscn" id="1_uiky3"]
+[ext_resource type="Resource" uid="uid://bhfx1pug2cnbt" path="res://resource/character_list/shion.tres" id="2_dsmh8"]
+[ext_resource type="Script" path="res://scripts/shion.gd" id="2_m8s6u"]
+[ext_resource type="Texture2D" uid="uid://hcwnw7pckq3d" path="res://assets/character/shion.png" id="3_kdcan"]
+[ext_resource type="Resource" uid="uid://6d5iaw7ulxcv" path="res://resource/plant_list/blue_bell.tres" id="3_rbw6h"]
+
+[node name="base_character" instance=ExtResource("1_uiky3")]
+script = ExtResource("2_m8s6u")
+reward = Array[Resource("res://scripts/plant/plant_data.gd")]([ExtResource("3_rbw6h")])
+character_info = ExtResource("2_dsmh8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = ExtResource("3_kdcan")

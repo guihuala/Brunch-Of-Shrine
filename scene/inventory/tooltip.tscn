@@ -1,0 +1,102 @@
+[gd_scene load_steps=15 format=3 uid="uid://cr8cfn1y5dmwo"]
+
+[ext_resource type="Script" path="res://scripts/tooltip.gd" id="1_lu5qr"]
+[ext_resource type="Resource" uid="uid://cnuq1toa8qslm" path="res://resource/plant_resource.tres" id="2_8ffrq"]
+[ext_resource type="PackedScene" uid="uid://gpfqmey0wqjn" path="res://scene/inventory/eat_button.tscn" id="2_edghq"]
+[ext_resource type="Texture2D" uid="uid://c3vqjwgpd22xt" path="res://assets/others/button_normal.png" id="3_bdq7s"]
+[ext_resource type="Resource" uid="uid://bmgvetmbtq1vl" path="res://resource/seed_resource.tres" id="3_fs2rw"]
+[ext_resource type="Texture2D" uid="uid://ohjcgfcaysph" path="res://assets/others/button_pressed.png" id="4_euhqo"]
+[ext_resource type="Resource" uid="uid://00wdkeybfxgm" path="res://resource/food_resource.tres" id="4_y0r84"]
+[ext_resource type="Texture2D" uid="uid://63n8hpc803gg" path="res://assets/Inventory/info_ui.png" id="6_5w4ou"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_loq7m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vafli"]
+content_margin_left = 11.0
+content_margin_top = 4.0
+content_margin_right = 11.0
+content_margin_bottom = 4.0
+texture = ExtResource("3_bdq7s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2nk88"]
+content_margin_left = 11.0
+content_margin_top = 4.0
+content_margin_right = 11.0
+content_margin_bottom = 4.0
+texture = ExtResource("4_euhqo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68hml"]
+content_margin_left = 11.0
+content_margin_top = 4.0
+content_margin_right = 11.0
+content_margin_bottom = 4.0
+texture = ExtResource("4_euhqo")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_who06"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kduop"]
+
+[node name="tooltip" type="PanelContainer"]
+offset_right = 128.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_loq7m")
+script = ExtResource("1_lu5qr")
+eat_button = ExtResource("2_edghq")
+plant_resource = ExtResource("2_8ffrq")
+seed_resource = ExtResource("3_fs2rw")
+foodResource = ExtResource("4_y0r84")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color(1, 1, 1, 0.545098)
+layout_mode = 2
+texture = ExtResource("6_5w4ou")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "111"
+uppercase = true
+
+[node name="desc" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 8
+text = "1111111111121212121212121212121212121212121212121212121212121212121"
+autowrap_mode = 3
+uppercase = true
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sell" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_vafli")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2nk88")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_68hml")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_who06")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kduop")
+text = "SELL"
+
+[node name="Eat" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_edghq")]
+layout_mode = 2
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/Sell" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/Eat" to="." method="_on_eat_button_down"]

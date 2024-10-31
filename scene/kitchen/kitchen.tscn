@@ -1,0 +1,239 @@
+[gd_scene load_steps=11 format=3 uid="uid://b83o6kfu67a82"]
+
+[ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_4iiin"]
+[ext_resource type="Texture2D" uid="uid://boa822pn1fgys" path="res://assets/Inventory/Inventory_background.png" id="1_ldvms"]
+[ext_resource type="PackedScene" uid="uid://0s0ui5t2mgvl" path="res://scene/kitchen/recipes_ui.tscn" id="2_auda1"]
+[ext_resource type="Resource" uid="uid://dfkbmk0msm863" path="res://resource/recipes_resource.tres" id="2_jibf7"]
+[ext_resource type="PackedScene" uid="uid://b3n2frqekv65y" path="res://scene/inventory/item_info.tscn" id="4_c3835"]
+[ext_resource type="Texture2D" uid="uid://c3vqjwgpd22xt" path="res://assets/others/button_normal.png" id="5_ijcdu"]
+[ext_resource type="Texture2D" uid="uid://ohjcgfcaysph" path="res://assets/others/button_pressed.png" id="6_lt6b8"]
+[ext_resource type="Texture2D" uid="uid://bmo6qs8xy6rxe" path="res://assets/character/tsubakura.png" id="8_g5r0h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_whxww"]
+texture = ExtResource("1_ldvms")
+texture_margin_left = 10.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_su02r"]
+bg_color = Color(0.898039, 0.45098, 0.34902, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="kitchen" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4iiin")
+recipeResource = ExtResource("2_jibf7")
+recipe_info = ExtResource("2_auda1")
+item_info = ExtResource("4_c3835")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -132.0
+offset_right = 243.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ldvms")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="maincontant" type="HBoxContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="recipesinfo" type="Control" parent="NinePatchRect/MarginContainer/maincontant"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/MarginContainer/maincontant/recipesinfo"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 165.0
+grow_horizontal = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/maincontant/recipesinfo/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="foodname" type="Label" parent="NinePatchRect/MarginContainer/maincontant/recipesinfo/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.760784, 0.533333, 0.368627, 1)
+text = "foodname"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
+[node name="ingredients" type="Label" parent="NinePatchRect/MarginContainer/maincontant/recipesinfo/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.760784, 0.533333, 0.368627, 1)
+text = "ingredients"
+uppercase = true
+
+[node name="ingredientsContainer" type="GridContainer" parent="NinePatchRect/MarginContainer/maincontant/recipesinfo/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+columns = 4
+
+[node name="results" type="Label" parent="NinePatchRect/MarginContainer/maincontant/recipesinfo/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.760784, 0.533333, 0.368627, 1)
+text = "result"
+uppercase = true
+
+[node name="resultsContainers" type="GridContainer" parent="NinePatchRect/MarginContainer/maincontant/recipesinfo/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+columns = 4
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/maincontant/recipesinfo/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.760784, 0.533333, 0.368627, 1)
+theme_override_font_sizes/font_size = 8
+text = "price:
+time:
+"
+uppercase = true
+
+[node name="cookButton" type="TextureButton" parent="NinePatchRect/MarginContainer/maincontant/recipesinfo"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+texture_normal = ExtResource("5_ijcdu")
+texture_pressed = ExtResource("6_lt6b8")
+texture_hover = ExtResource("6_lt6b8")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/maincontant/recipesinfo/cookButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "cook!"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="recipesContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/maincontant"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="recipes" type="Label" parent="NinePatchRect/MarginContainer/maincontant/recipesContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.760784, 0.533333, 0.368627, 1)
+text = "         recipes         "
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/MarginContainer/maincontant/recipesContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="recipes" type="VBoxContainer" parent="NinePatchRect/MarginContainer/maincontant/recipesContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="cookTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 141.0
+offset_right = 240.0
+offset_bottom = 160.0
+text = "plate:5"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-240, 125)
+scale = Vector2(3, 3)
+texture = ExtResource("8_g5r0h")
+
+[node name="wait_anim" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -352.0
+offset_top = -187.0
+offset_right = 352.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="wait_anim"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = 84.0
+offset_right = 216.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxTexture_whxww")
+theme_override_styles/fill = SubResource("StyleBoxFlat_su02r")
+show_percentage = false
+
+[connection signal="pressed" from="NinePatchRect/MarginContainer/maincontant/recipesinfo/cookButton" to="." method="_on_cook_button_pressed"]
+[connection signal="timeout" from="cookTimer" to="." method="_on_cook_timer_timeout"]

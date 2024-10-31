@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodData" load_steps=2 format=3 uid="uid://cru7wps48u6fq"]
+
+[ext_resource type="Script" path="res://scripts/cook/food_data.gd" id="1_nh81e"]
+
+[resource]
+script = ExtResource("1_nh81e")
+food_name = "rainwater syrup"
+texture_path = "res://assets/dishes/rainwater_syrup.png"
+price = 60
+quantity = 0
